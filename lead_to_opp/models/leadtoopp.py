@@ -3,7 +3,7 @@ import logging
 _logger = logging.getLogger(__name__)
 
 class CrmLead(models.TransientModel):
-    _inherit = 'crm.lead2opportunity.partner'
+    _inherit = 'crm.lead'
 
     def action_apply(self):
         #result = super(CrmLead, self).action_apply()
