@@ -24,6 +24,7 @@ class CrmLead(models.TransientModel):
                 # Iterate over the leads and access the custom field
                 for record in leads:
                     new_contact = self.env['res.partner'].create({
+                         'name': record.x_studio_first_name + " "+ record.x_studio_last_name,
                          'x_studio_email_opt_out': record.x_studio_email_opt_out,
                          'x_studio_facebook': record.x_studio_facebook,
                          'x_studio_first_name': record.x_studio_first_name,
