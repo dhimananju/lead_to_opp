@@ -29,9 +29,10 @@ class CrmLead(models.TransientModel):
                         _logger.info("update data")
                         # Access the existing partner record
                         partner = record.partner_id.id
-                        if partner:
+                        partner_record = request.env['res.partner'].sudo().browse(partner)
+                        if partner_record.exists():
                             # Update the partner record with new data
-                            partner.write({
+                            partner_record.write({
                                  'x_studio_email_opt_out': record.x_studio_email_opt_out,
                                  'x_studio_facebook': record.x_studio_facebook,
                                  'x_studio_first_name': record.x_studio_first_name,
