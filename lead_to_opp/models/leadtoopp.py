@@ -25,7 +25,7 @@ class CrmLead(models.TransientModel):
                     partner_id = record.partner_id.id  # This is the created or associated partner's ID
                     _logger.info(partner_id)
                     if partner_id:
-                        _logger.info("record.email_from" + record.email_from)
+                        _logger.info("record email_from")
                         if record.email_from:
                             existing_contact = self.env['res.partner'].search([('email', '=', record.email_from)], limit=1)
                             if existing_contact:
