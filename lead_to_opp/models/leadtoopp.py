@@ -14,11 +14,11 @@ class CrmLead(models.TransientModel):
                 _logger.info('Anju second step')
                 # Check if a contact with the same email already exists
                 existing_contact = self.env['res.partner'].search([('email', '=', email)], limit=1)
-                if existing_contact:
+                #if existing_contact:
                     # If a contact with the same email exists, log and return the existing contact
-                    _logger.info('Contact with email %s already exists. Contact ID: %s', email, existing_contact.id)
-                    return existing_contact
-                else:
+                  #  _logger.info('Contact with email %s already exists. Contact ID: %s', email, existing_contact.id)
+                 #   return existing_contact
+                #else:
                     new_contact = self.env['res.partner'].create({
                          'x_studio_email_opt_out': self.x_studio_email_opt_out,
                          'x_studio_facebook': self.x_studio_facebook,
