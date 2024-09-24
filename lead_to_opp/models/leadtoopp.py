@@ -20,15 +20,15 @@ class CrmLead(models.TransientModel):
                     return existing_contact
                 else:
                     new_contact = self.env['res.partner'].create({
-                        # 'name': self.x_studio_email_opt_out,
-                        # 'phone': self.x_studio_facebook,
-                        # 'email': self.x_studio_first_name,
-                        # 'street': self.x_studio_last_name,
-                        # 'name': self.x_studio_industry_id,
-                        # 'phone': self.x_studio_linkedin_url,
-                        # 'email': self.x_studio_type_of_lead,
-                        # 'street': self.x_studio_source_id | "source",
-                        # 'street': self.x_studio_secondary_email,
+                         'x_studio_email_opt_out': self.x_studio_email_opt_out,
+                         'x_studio_facebook': self.x_studio_facebook,
+                         'x_studio_first_name': self.x_studio_first_name,
+                         'x_studio_last_name': self.x_studio_last_name,
+                         'industry_id': self.x_studio_industry_id,
+                         'x_studio_linkedin_url': self.x_studio_linkedin_url,
+                         'x_studio_type_of_lead': self.x_studio_type_of_lead,
+                         'x_studio_source_id': self.x_studio_source_id | "source",
+                         'x_studio_secondary_email': self.x_studio_secondary_email,
                     })
                     # Log the creation for debugging
                     _logger.info('New contact created with ID: %s', new_contact.id)
