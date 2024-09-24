@@ -2,8 +2,8 @@ from odoo import models, api
 import logging
 _logger = logging.getLogger(__name__)
 
-class CrmLead(models.Model):
-    _inherit = 'crm.lead'
+class CrmLead(models.TransientModel):
+    _inherit = 'crm.lead2opportunity.partner'
 
     def action_apply(self):
         #result = super(CrmLead, self).action_apply()
