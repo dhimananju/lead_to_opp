@@ -22,11 +22,7 @@ class CrmLead(models.TransientModel):
                 leads = self.env['crm.lead'].browse(self._context.get('active_ids', []))
 
                 # Iterate over the leads and access the custom field
-                for lead in leads:
-                    custom_field_value = lead.x_studio_email_opt_out  # Replace with actual custom field name
-                    _logger.info(custom_field_value)
-                
-                for record in self:
+                for record in leads:
                     new_contact = self.env['res.partner'].create({
                          'x_studio_email_opt_out': record.x_studio_email_opt_out,
                          'x_studio_facebook': record.x_studio_facebook,
@@ -38,6 +34,7 @@ class CrmLead(models.TransientModel):
                          'x_studio_source_id': record.x_studio_source_id | "source",
                          'x_studio_secondary_email': record.x_studio_secondary_email,
                     })
+                
                 # Log the creation for debugging
                 _logger.info('New contact created with ID: %s', new_contact.id)
 
