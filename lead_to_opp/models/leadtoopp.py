@@ -6,7 +6,7 @@ class CrmLead(models.TransientModel):
     _inherit = 'crm.lead2opportunity.partner'
 
     def action_apply(self):
-        #result = super(CrmLead, self).action_apply()
+        result = super(CrmLead, self).action_apply()
         if self.name == 'convert':
              _logger.info('Anju first step.')
              _logger.info(self.action)
