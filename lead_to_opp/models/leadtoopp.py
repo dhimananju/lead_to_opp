@@ -14,6 +14,7 @@ class CrmLead(models.TransientModel):
                 _logger.info('Anju second step')
                 _logger.info(self)
                 for record in self:
+                    _logger.info(record)
                     new_contact = self.env['res.partner'].create({
                          'x_studio_email_opt_out': record.x_studio_email_opt_out,
                          'x_studio_facebook': record.x_studio_facebook,
