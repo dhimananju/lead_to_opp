@@ -20,14 +20,14 @@ class CrmLead(models.TransientModel):
 
                 # Access the leads selected in the wizard
                 leads = self.env['crm.lead'].browse(self._context.get('active_ids', []))
-                existing_contact = self.env['res.partner'].search([('email', '=', leads.email)], limit=1)
-                if existing_contact:
-                    # If a contact with the same email exists, log and return the existing contact
-                    _logger.info('Contact with email %s already exists. Contact ID: %s', email, existing_contact.id)
-                    return existing_contact
-                else:
                     # Iterate over the leads and access the custom field
                     for record in leads:
+                         existing_contact = self.env['res.partner'].search([('email', '=', record.email)], limit=1)
+                        if existing_contact:
+                            # If a contact with the same email exists, log and return the existing contact
+                            _logger.info('Contact with email %s already exists. Contact ID: %s', email, existing_contact.id)
+                            return existing_contact
+                        else:
                         new_contact = self.env['res.partner'].create({
                              'name': record.x_studio_first_name + " "+ record.x_studio_last_name,
                              'x_studio_email_opt_out': record.x_studio_email_opt_out,
