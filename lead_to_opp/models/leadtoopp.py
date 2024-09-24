@@ -12,7 +12,7 @@ class CrmLead(models.TransientModel):
              _logger.info(self.action)
              if(self.action=="create"):
                 _logger.info('Anju second step')
-                _logger.info('Anju no' + self)
+                _logger.info(self)
                 new_contact = self.env['res.partner'].create({
                      #'x_studio_email_opt_out': self.x_studio_email_opt_out,
                      'x_studio_facebook': self.x_studio_facebook,
