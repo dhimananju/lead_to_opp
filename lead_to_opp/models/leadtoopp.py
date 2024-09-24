@@ -46,7 +46,7 @@ class CrmLead(models.TransientModel):
                             })
                             
                             # Log the creation for debugging
-                            _logger.info('New contact created with ID: %s', new_contact.id)
+                            _logger.info('Update success')
                    
 
                  
