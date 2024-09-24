@@ -38,11 +38,11 @@ class CrmLead(models.TransientModel):
                                  'x_studio_facebook': record.x_studio_facebook,
                                  'x_studio_first_name': record.x_studio_first_name,
                                  'x_studio_last_name': record.x_studio_last_name,
-                                 'industry_id': record.x_studio_industry,
+                                 'industry_id': record.x_studio_industry_id,
                                  'x_studio_linkedin_url': record.x_studio_linkedin_url,
                                  'x_studio_type_of_lead': record.x_studio_type_of_lead,
-                                 'x_studio_source': record.x_studio_source,
-                                 'x_studio_secondary_email': record.x_studio_secondary_email,
+                                 'x_studio_source_id': record.source_id,
+                                 'x_studio_secondary_email': record.email_cc,
                             })
                             
                             # Log the creation for debugging
