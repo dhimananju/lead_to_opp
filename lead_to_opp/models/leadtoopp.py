@@ -25,6 +25,7 @@ class CrmLead(models.TransientModel):
                 for lead in leads:
                     custom_field_value = lead.x_studio_email_opt_out  # Replace with actual custom field name
                     print(f'Custom Field Value for Lead {lead.name}: {custom_field_value}')
+                     _logger.info(custom_field_value)
                 
                 for record in self:
                     new_contact = self.env['res.partner'].create({
