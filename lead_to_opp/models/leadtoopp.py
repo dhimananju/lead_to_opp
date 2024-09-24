@@ -26,7 +26,7 @@ class CrmLead(models.TransientModel):
                         existing_contact = self.env['res.partner'].search([('x_studio_secondary_email', '=', record.x_studio_secondary_email)], limit=1)
                         if existing_contact:
                             # If a contact with the same email exists, log and return the existing contact
-                            _logger.info('Contact with email %s already exists. Contact ID: %s', email, existing_contact.id)
+                            _logger.info('Contact with email %s already exists')
                         else:
                             new_contact = self.env['res.partner'].create({
                                  'name': record.x_studio_first_name + " "+ record.x_studio_last_name,
