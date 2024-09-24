@@ -23,7 +23,7 @@ class CrmLead(models.TransientModel):
                 # Iterate over the leads and access the custom field
                 for record in leads:
                     partner_id = record.partner_id.id  # This is the created or associated partner's ID
-                    _logger.info("partner id" + partner_id)
+                    _logger.info(partner_id)
                     if partner_id:
                         _logger.info("record.email_from" + record.email_from)
                         if record.email_from:
