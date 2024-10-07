@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates xml:space="preserve">
+    <t t-name="ti_loan_management.aboutmesummary">
+        <t t-if="state.isModalOpen">
+            <div class="modal-overlay" >
+                <div class="modal-content">
+                    <button class="close-button text-secondary" type="button"  t-on-click="closeModal">X</button>
+                        <div class="container mt32">
+                            <h1  class="review_detail">Review your details</h1>
+                            <div class="accordion" id="accordionExample">
+                                <div class="accordion-item">
+                                    <h2 class="accordion-header" id="headingOne">
+                                    <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                        Mortgage Selection
+                                    </button>
+                                    </h2>
+                                    <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+                                    <div class="accordion-body">
+                                        <p><strong>Is this your First mortgage  : </strong><t t-esc="state.mortage_select"/></p>
+                                        <p><strong>Select the Mortgage intrest type : </strong><t t-esc="state.interest_type"/></p>
+                                        <p><strong>Mortgagae by yourself or with somebody  : </strong><t t-esc="state.applicant_no"/></p>
+                                    </div>
+                                    </div>
+                                </div>
+                                <div class="accordion-item">
+                                    <h2 class="accordion-header" id="headingTwo">
+                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                                        About me
+                                    </button>
+                                    </h2>
+                                    <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
+                                    <div class="accordion-body">
+                                        <div class="container">
+                                            <div class="row">
+                                                <div class="col"><strong>First Name :</strong><t t-esc="state.first_name"/></div>
+                                                <div class="col"><strong>Last Name :</strong><t t-esc="state.last_name"/></div>
+                                                <div class="col"> </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col"><strong>Country code  :</strong><t t-esc="state.countrycode"/></div>
+                                                <div class="col"><strong>Perfix  :</strong><t t-esc="state.perfix"/></div>
+                                                <div class="col"><strong>Local Number  :</strong><t t-esc="state.local_number"/></div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col"><strong>Personal Country code  :</strong><t t-esc="state.countrycode_personal"/></div>
+                                                <div class="col"><strong>Perfix  :</strong><t t-esc="state.perfix_personal"/></div>
+                                                <div class="col"><strong>Local Number  :</strong><t t-esc="state.local_number_personal"/></div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col"><strong>Date of birth  :</strong><t t-esc="state.dat_of_birth"/></div>
+                                                <div class="col"><strong>PPSN  :</strong><t t-esc="state.ppsn"/></div>
+                                                <div class="col"><strong>Nationality  :</strong><t t-esc="state.nationality"/></div>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                    </div>
+                                </div>
+                               
+                                </div>
+                        
+                    </div>
+                        
+                </div>
+            </div>
+        </t>
+    </t>
+</templates>

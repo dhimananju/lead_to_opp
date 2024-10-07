@@ -1,0 +1,1 @@
+This module implements the required feature for Business Lending Application and SAM for cuda. It will provide the functionality to view report and pdf without download and print option.

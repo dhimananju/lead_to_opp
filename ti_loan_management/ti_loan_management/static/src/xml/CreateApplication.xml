@@ -1,0 +1,101 @@
+<templates xml:space="preserve">
+    <t t-name="ti_loan_management.CreateApplication" name="Mortgage Loan | About me">
+        <div class="container ">
+                <div class="row">
+                    <div class="col-md right-grid create_app_page">
+                        <!--<t t-call="ti_loan_management.load_page_second"></t>
+                        <t t-call="ti_loan_management.loan_third_step"></t>-->
+                            
+                                <form name="mortage_first_step" action="" method="post">
+                                    
+                                        <t t-esc="values" />
+                                        <div>
+                                            <!-- Tab Navigation -->
+                                            <ul class="nav nav-tabs">
+                                                <li class="nav-item">
+                                                    <a href="#" class="nav-link mortgage_nav" t-att-disabled="!state.tab1Done ? 'disabled' : null" t-att-class="{active: state.activeTab === 'tab1'}" t-on-click.prevent="setActiveTab.bind(this, 'tab1','aboutus')">
+                                                        About Me
+                                                    </a>
+                                                </li>
+                                                <li class="nav-item">
+                                                    <a href="#" class="nav-link mortgage_nav" t-att-disabled="!state.tab2Done ? 'disabled' : null" t-att-class="{active: state.activeTab === 'tab2'}" t-on-click.prevent="setActiveTab.bind(this, 'tab2','live')">
+                                                        Where i Live
+                                                    </a>
+                                                </li>
+                                                <li class="nav-item">
+                                                    <a href="#" class="nav-link mortgage_nav" t-att-disabled="!state.tab3Done ? 'disabled' : null" t-att-class="{active: state.activeTab === 'tab3'}" t-on-click.prevent="setActiveTab.bind(this, 'tab3','job')">
+                                                        My Job
+                                                    </a>
+                                                </li>
+                                                <li class="nav-item">
+                                                    <a href="#" class="nav-link mortgage_nav" t-att-class="{active: state.activeTab === 'tab4'}" t-on-click.prevent="setActiveTab.bind(this, 'tab4','expenses')">
+                                                        Mortgage Expenses
+                                                    </a>
+                                                </li>
+                                            </ul>
+
+                                            <!-- Tab Content -->
+                                            <div class="tab-content mt-4">
+                                                <div class="tab-pane" t-att-class="{active: state.activeTab === 'tab1'}">
+                                                    <div class="row">
+                                                        <div class="col-md-6 tab_title">
+                                                            <h3>About me</h3>
+                                                        </div>
+                                                        <div class="col-md-6 text-end">
+                                                            <button type="button" class="btn btn-primary text-right  btn-summary" t-on-click="openModal">
+                                                                Application summary
+                                                            </button>
+                                                        </div>
+                                                    </div>
+                                                    <t t-call="ti_loan_management.aboutme"></t>
+                                                </div>
+                                                <div class="tab-pane" t-att-class="{active: state.activeTab === 'tab2'}">
+                                                    <div class="row">
+                                                        <div class="col-md-6 tab_title">
+                                                            <h3>Where I live</h3>
+                                                        </div>
+                                                        <div class="col-md-6 text-end">
+                                                            <button type="button" class="btn btn-primary text-right  btn-summary" t-on-click="openModal">
+                                                                Application summary
+                                                            </button>
+                                                        </div>
+                                                    </div>
+                                                    <t t-call="ti_loan_management.whereilive"></t>
+                                                </div>
+                                                <div class="tab-pane" t-att-class="{active: state.activeTab === 'tab3'}">
+                                                    <div class="row">
+                                                        <div class="col-md-6 tab_title">
+                                                            <h3>My Job</h3>
+                                                        </div>
+                                                        <div class="col-md-6 text-end">
+                                                            <button type="button" class="btn btn-primary text-right  btn-summary" t-on-click="openModal">
+                                                                Application summary
+                                                            </button>
+                                                        </div>
+                                                    </div>
+                                                    <t t-call="ti_loan_management.myjob"></t>
+                                                </div>
+                                                <div class="tab-pane" t-att-class="{active: state.activeTab === 'tab4'}">
+                                                    <div class="row">
+                                                        <div class="col-md-6 tab_title">
+                                                            <h3>Mortgage Expenses</h3>
+                                                        </div>
+                                                        <div class="col-md-6 text-end">
+                                                            <button type="button" class="btn btn-primary text-right  btn-summary" t-on-click="openModal">
+                                                                Application summary
+                                                            </button>
+                                                        </div>
+                                                    </div>
+                                                    <t t-call="ti_loan_management.mortgageexpenses"></t>
+                                                </div>
+                                            </div>
+                                        </div>
+                                </form>
+                    </div>
+                </div>
+            </div>
+
+            
+
+    </t>
+</templates>

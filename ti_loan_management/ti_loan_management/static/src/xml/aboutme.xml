@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates xml:space="preserve">
+    <t t-name="ti_loan_management.aboutme">
+        <form class="aboutus row g-3"  >
+            <div class="row">
+                
+                <div class="col-md-4">
+                    <label for="inputEmail4" class="input-label required_field">Title</label>
+                    <input type="hidden" name="csrf_token" t-att-value="csrfToken"/>
+                    <select id="inputState"  name="title" t-model="state.title"  class="form-control select-option ">
+                        <option value="Mr.">Mr.</option>
+                        <option value="Ms.">Ms.</option>
+                    </select>
+                </div>
+                <div class="col-md-4">
+                    <label for="inputEmail4" class="input-label required_field">First Name</label>
+                    <input type="text" name="first_name" t-model="state.first_name"  t-att-class="'form-control ' + (errors.first_name ? 'required_input' : '')" placeholder="First name" />
+                    <span t-if="errors.first_name" class="error alert-danger">This field is required</span>
+                </div>
+                <div class="col-md-4">
+                    <label for="inputEmail4" class="input-label required_field">Last Name</label>
+                    <input type="text" name="last_name" t-model="state.last_name" t-att-class="'form-control ' + (errors.last_name ? 'required_input' : '')" placeholder="Last name"/>
+                    <span t-if="errors.last_name" class="error alert-danger">This field is required</span>
+                </div>
+                <p class="home_phone">Home Phone number</p>
+                <!-- <div class="col-md-4">
+                    <label for="inputEmail4" class="input-label required_field required_field">Country code</label>
+                    <select id="countrycode" name="countrycode" t-model="state.countrycode" t-att-class="'form-control elect-option ' + (errors.countrycode ? 'required_input' : '')">
+                        <option value="">Select a country</option>
+                        <option t-foreach="state.countries" t-as="country" t-key="country.code"  t-att-value="country.code">
+                            <t t-esc="country.name"/> (<t t-esc="country.code"/>)
+                        </option>
+                    </select>
+                </div> -->
+                <div class="col-md-6">
+                    <label for="inputEmail4" class="input-label required_field">Perfix</label>
+                    <input type="text" name="perfix" t-model="state.perfix"  t-att-class="'form-control ' + (errors.perfix ? 'required_input' : '')" placeholder="Perfix (+91)"/>
+                    <span t-if="errors.perfix" class="error alert-danger">This field is required</span>
+                </div>
+                <div class="col-md-6">
+                    <label for="inputEmail4" class="input-label required_field">Local Number</label>
+                    <input type="text" name="local_number" t-model="state.local_number" t-att-class="'form-control ' + (errors.local_number ? 'required_input' : '')"  placeholder="Local Number"/>
+                    <span t-if="errors.local_number" class="error alert-danger">This field is required</span>
+                    <span t-if="errors.localnumberfield" class="error alert-danger">Phone number should be numeric value</span>
+                </div>
+                <p class="home_phone">Personal mobile number</p>
+                <!-- <div class="col-md-4">
+                    <label for="inputEmail4" class="input-label required_field">Country code</label>
+                    <select id="countrycode" name="countrycode_personal" t-model="state.countrycode_personal" t-att-class="'form-control elect-option ' + (errors.countrycode_personal ? 'required_input' : '')">
+                        <option value="">Select a country</option>
+                       
+                        <option t-foreach="state.countries" t-as="country" t-key="country.code" t-att-value="country.code">
+                            <t t-esc="country.name"/> (<t t-esc="country.code"/>)
+                        </option>
+                    </select>
+                </div> -->
+                <div class="col-md-6">
+                    <label for="inputEmail4" class="input-label required_field">Perfix</label>
+                    <input type="text" name="perfix_personal"  t-model="state.perfix_personal" t-att-class="'form-control ' + (errors.perfix_personal ? 'required_input' : '')"  placeholder="Perfix (+91)"/>
+                    <span t-if="errors.perfix_personal" class="error alert-danger">This field is required</span>
+                </div>
+                <div class="col-md-6">
+                    <label for="inputEmail4" class="input-label required_field">Local Number</label>
+                    <input type="text" name="local_number_personal" t-model="state.local_number_personal" t-att-class="'form-control ' + (errors.local_number_personal ? 'required_input' : '')" placeholder="Local Number"/>
+                    <span t-if="errors.local_number_personal" class="error alert-danger">This field is required</span>
+                    <span t-if="errors.personalnumberfield" class="error alert-danger">Phone number should be numeric value</span>
+                </div>
+                <div class="col-md-4 mt-4">
+                    <label for="inputEmail4" class="input-label required_field">Date</label>
+                    <input type="date" name="date_of_birth" t-att-max="state.maxDate" t-model="state.date_of_birth" t-att-class="'form-control ' + (errors.date_of_birth ? 'required_input' : '')"  placeholder="Date of Birth"/>
+                    <span t-if="errors.date_of_birth" class="error alert-danger">This field is required</span>
+                    <span t-if="errors.dobError" class="error alert-danger">Age should be greater than 18 years</span>
+                </div>
+                <div class="col-md-4 mt-4">
+                    <label for="inputEmail4" class="input-label required_field">PPSN</label>
+                    <input type="text" name="ppsn"  t-model="state.ppsn" t-att-class="'form-control ' + (errors.ppsn ? 'required_input' : '')"  placeholder="PPSN"/>
+                    <span t-if="errors.ppsn" class="error alert-danger">This field is required</span>
+                </div>
+                <div class="col-md-4 mt-4">
+                    <label for="inputEmail4" class="input-label required_field">Country of Nationality</label>
+                    <input type="text" name="nationality" t-model="state.nationality" t-att-class="'form-control ' + (errors.nationality ? 'required_input' : '')" placeholder="Country of Nationality"/>
+                    <span t-if="errors.nationality" class="error alert-danger">This field is required</span>
+                </div>
+                <p class="home_phone">Gender</p>
+                <div class="row">
+                    <div class="col-sm-10 custom-control-inline">
+                            <div class="form-check">
+                                <input class="form-check-input" t-model="state.gender" type="radio" name="gender" id="gender1" value="male" checked="checked"/>
+                                <label class="form-check-label" for="gridRadios1">
+                                    Male
+                                </label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" t-model="state.gender" type="radio" name="gender" id="gender2" value="female"/>
+                                <label class="form-check-label" for="gridRadios2">
+                                    Female
+                                </label>
+                            </div>
+                    </div>
+                </div>
+                
+                
+                
+                <div class="col-md-12 mt-3">
+                    <div class="form-check">
+                        <input  t-model="state.terms_and_condition" t-att-class="'form-check-input ' + (errors.terms_and_condition ? 'required_input' : '')" type="checkbox" id="terms_and_condition"  name="terms_and_condition"/>
+                        
+                        <label class="form-check-label required_field" for="gridCheck">
+                            I agree to receive direct marketing by email/phone/SMS/post.
+                        </label>
+                        <span t-if="errors.terms_and_condition" class="error alert-danger">This field is required</span>
+                    </div>
+                </div>
+                <div class="col-md-12 mt-4">
+                    <t t-if="state.page=='aboutus'">
+                        <div t-if="state.errorMessage" class="error sticky-sm-top alert alert-danger" role="alert">
+                                <p t-esc="state.errorMessage"></p>
+                        </div>
+                    </t>
+                </div>
+               
+                <div class="col">
+                    <div class="form-check text-end">
+                        <button type="submit" class="btn btn-primary create_app_btn mt-3 btn-mortgage" t-on-click.prevent="submitaboutus.bind(this, 'aboutus','tab2','tab1')">
+                            Continue
+                        </button>
+                        
+                    </div>
+                </div>
+
+
+            </div>
+        </form>
+
+        <!-- Conditionally render the modal -->
+        <t t-call="ti_loan_management.aboutmesummary"></t>
+    </t>
+</templates>

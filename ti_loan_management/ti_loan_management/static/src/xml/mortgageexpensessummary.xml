@@ -1,0 +1,176 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates xml:space="preserve">
+    <t t-name="ti_loan_management.mortgageexpensessummary">
+        <t t-if="state.isModalOpen">
+            <div class="modal-overlay" >
+                <div class="modal-content">
+                    <button class="close-button text-secondary" type="button"   t-on-click="closeModal">X</button>
+                        <div class="container mt32">
+                            <h1 class="review_detail">Review your details</h1>
+                            <div class="accordion" id="accordionExample">
+                                <div class="accordion-item">
+                                    <h2 class="accordion-header" id="headingOne">
+                                    <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                        Mortgage Selection
+                                    </button>
+                                    </h2>
+                                    <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+                                    <div class="accordion-body">
+                                        <p><strong>Is this your First mortgage  : </strong><t t-esc="state.mortage_select"/></p>
+                                        <p><strong>Select the Mortgage intrest type : </strong><t t-esc="state.interest_type"/></p>
+                                        <p><strong>Mortgagae by yourself or with somebody  : </strong><t t-esc="state.applicant_no"/></p>
+                                    </div>
+                                    </div>
+                                </div>
+                                <div class="accordion-item">
+                                    <h2 class="accordion-header" id="headingTwo">
+                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                                        About me
+                                    </button>
+                                    </h2>
+                                    <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
+                                    <div class="accordion-body">
+                                        <div class="container">
+                                            <div class="row">
+                                                <div class="col"><strong>First Name :</strong><t t-esc="state.first_name"/></div>
+                                                <div class="col"><strong>Last Name :</strong><t t-esc="state.last_name"/></div>
+                                                <div class="col"> </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col"><strong>Country code  :</strong><t t-esc="state.countrycode"/></div>
+                                                <div class="col"><strong>Perfix  :</strong><t t-esc="state.perfix"/></div>
+                                                <div class="col"><strong>Local Number  :</strong><t t-esc="state.local_number"/></div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col"><strong>Personal Country code  :</strong><t t-esc="state.countrycode_personal"/></div>
+                                                <div class="col"><strong>Perfix  :</strong><t t-esc="state.perfix_personal"/></div>
+                                                <div class="col"><strong>Local Number  :</strong><t t-esc="state.local_number_personal"/></div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col"><strong>Date of birth  :</strong><t t-esc="state.dat_of_birth"/></div>
+                                                <div class="col"><strong>PPSN  :</strong><t t-esc="state.ppsn"/></div>
+                                                <div class="col"><strong>Nationality  :</strong><t t-esc="state.nationality"/></div>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                    </div>
+                                </div>
+                                <div class="accordion-item">
+                                    <h2 class="accordion-header" id="headingThree">
+                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                                        Where I live
+                                    </button>
+                                    </h2>
+                                    <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#accordionExample">
+                                    <div class="accordion-body">
+                                        <div class="container">
+                                            <div class="row">
+                                                <div class="col"><strong>Address Line 1 :</strong><t t-esc="state.address_line1"/></div>
+                                                <div class="col"><strong>Address Line 2 :</strong><t t-esc="state.address_line2"/></div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col"><strong>Address Line 3  :</strong><t t-esc="state.address_line3"/></div>
+                                                <div class="col"><strong>Country  :</strong><t t-esc="state.country"/></div>
+                                                
+                                            </div>
+                                            <div class="row">
+                                                <div class="col"><strong>EirCode  :</strong><t t-esc="state.eircode"/></div>
+                                                <div class="col"><strong>Residential Status  :</strong><t t-esc="state.residential_status"/></div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col"><strong>Years living at current address  :</strong><t t-esc="state.years_living_current_address"/></div>
+                                                <div class="col"><strong>Years resident in Ireland  :</strong><t t-esc="state._in_ireland"/></div>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                    </div>
+                                </div>
+                                <div class="accordion-item">
+                                    <h2 class="accordion-header" id="headingFour">
+                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+                                        My Job
+                                    </button>
+                                    </h2>
+                                    <div id="collapseFour" class="accordion-collapse collapse" aria-labelledby="headingFour" data-bs-parent="#accordionExample">
+                                    <div class="accordion-body">
+                                        <div class="container">
+                                            <div class="row">
+                                                <div class="col"><strong>Employment Status :</strong><t t-esc="state.employment_status"/></div>
+                                                <div class="col"><strong>Employment Sector :</strong><t t-esc="state.employment_sector"/></div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col"><strong>Occupation :</strong><t t-esc="state.occupation"/></div>
+                                                <div class="col"><strong>Employment Industry :</strong><t t-esc="state.employment_industry"/></div>
+                                                
+                                            </div>
+                                            <div class="row">
+                                                <div class="col"><strong>Length of time employed in current job or self-employed  :</strong><t t-esc="state.lenght_of_current_job"/></div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col"><strong>Employer’s name :</strong><t t-esc="state.employer_name"/></div>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                    </div>
+                                </div>
+
+                                <div class="accordion-item">
+                                    <h2 class="accordion-header" id="headingFive">
+                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
+                                        Mortgage Expenses
+                                    </button>
+                                    </h2>
+                                    <div id="collapseFive" class="accordion-collapse collapse" aria-labelledby="headingFive" data-bs-parent="#accordionExample">
+                                    <div class="accordion-body">
+                                        <div class="container">
+                                            <div class="row">
+                                                <div class="col"><strong>Are you planning to live in this property or let it out?:</strong><t t-esc="state.livein"/></div>
+                                                <div class="col"><strong>Are you looking to do a self-build?:</strong><t t-esc="state.selfbuild"/></div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col"><strong>Do you plan on applying for this new mortgage by yourself or with somebody? :</strong><t t-esc="state.application_count"/></div>
+                                                <div class="col"><strong>Do you currently have a property in mind? :</strong><t t-esc="state.property_in_mind"/></div>
+                                                
+                                            </div>
+                                             <div t-if="state.property_in_mind === 'yes'">
+                                                    <div class="row">
+                                                        <div class="col"><strong>What is the value of the property? (Approximate/Best estimate) (in Euro)  :</strong><t t-esc="state.estimate"/></div>
+                                                        <div class="col"><strong>How much funds do you currently have available?(in Euro)  :</strong><t t-esc="state.current_fund"/></div>
+                                                    </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col"><strong>How much on average is the total savings each month?(in Euro):</strong><t t-esc="state.average_savings"/></div>
+                                                <div class="col"><strong>Do you or any co-applicants have any dependents?:</strong><t t-esc="state.dependent"/></div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col"><strong>What is the annual gross basic income for Applicant 1?(in Euro) :</strong><t t-esc="state.anual_gross_income"/></div>
+                                                <div class="col"><strong>Is there any other variable income for Applicant 1?(in Euro) :</strong><t t-esc="state.variable_income"/></div>
+                                                
+                                            </div>
+                                            <div t-if="state.application_count === 'somebody'">
+                                                <div class="row">
+                                                    <div class="col"><strong>What is the annual gross basic income for Applicant 2?(in Euro) :</strong><t t-esc="state.applicant2_gross_income"/></div>
+                                                    <div class="col"><strong>Is there any other variable income for Applicant 2?(in Euro) :</strong><t t-esc="state.applicant2_variable_income"/></div>
+                                                    
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                    </div>
+                                </div>
+
+
+                               
+                                </div>
+                        
+                    </div>
+                        
+                </div>
+            </div>
+        </t>
+    </t>
+</templates>

@@ -1,0 +1,56 @@
+<templates xml:space="preserve">
+    <t t-name="ti_loan_management.ListMortgageLoan" name="Mortgage Loan | List">
+        <div class="container ">
+                    <div class="row">
+                        <div class="col-md-12 mt-4">
+                                <input type="hidden" name="csrf_token" t-att-value="csrfToken"/>
+                                <div class="card  bg-white shadow p-5">
+                                    <div class="row">
+                                        <div class="col-md-8 mb-4 text-center">
+                                            <h4 class="text-center text-blue">Application List </h4>
+                                        </div>
+                                        <div class="col-md-4 mb-4 text-center">
+                                            <button type="button" class="btn btn-primary" t-on-click="editacoount" >
+                                                Edit account
+                                            </button>
+                                        </div>
+                                    </div>
+                                    
+                                    <table class="table table-striped table-responsive">
+                                            <thead>
+                                                <tr>
+                                                <th scope="col">#</th>
+                                                <th scope="col">First time buyer</th>
+                                                <th scope="col">Property in mind</th>
+                                                <th scope="col">Live-In/Live-out</th>
+                                                <th scope="col">SelfBuil</th>
+                                                <th scope="col">Action</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <!-- Loop through the records using t-foreach -->
+                                                <t t-if="state.applicationlist.length > 0">
+                                                    <tr t-foreach="state.applicationlist" t-as="applicationlist" t-key="applicationlist.id">
+                                                        <th scope="row" t-esc="applicationlist.id"></th>
+                                                        <td t-esc="applicationlist.first_time_buyer" />
+                                                        <td t-esc="applicationlist.property_in_mind" />
+                                                        <td t-esc="applicationlist.livein" />
+                                                        <td t-esc="applicationlist.selfbuild" />
+                                                        <td><i class="bi bi-pen icon_color mr-4 wd-25" t-on-click.prevent="editapplication.bind(this,applicationlist.id)"></i>
+                                                        <i class="bi bi-trash icon_color" t-on-click.prevent="deleteapplication.bind(this, applicationlist.id)"></i></td>
+                                                    </tr>
+                                                </t>
+                                                <t t-else="">
+                                                    <tr rowspan="6">
+                                                        <td colspan="6" class="text-center">No records found.</td>
+                                                    </tr>
+                                                </t>
+
+                                            </tbody>
+                                    </table>
+                                </div>
+                        </div>
+                    </div>
+            </div>
+    </t>
+</templates>

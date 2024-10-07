@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates xml:space="preserve">
+    <t t-name="ti_loan_management.whereilive">
+        <form class="aboutus"  >
+            <div class="row">
+                
+                <div class="col">
+                    <label for="inputEmail4" class="input-label required_field">Address Line 1</label>
+                    <input type="text" name="address_line1" t-model="state.address_line1"  t-att-class="'form-control ' + (errors.address_line1 ? 'required_input' : '')" placeholder="Address Line 1" />
+                    <span t-if="errors.address_line1" class="error alert-danger">This field is required</span>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <label for="inputEmail4" class="input-label required_field mt-4">Address Line 2</label>
+                    <input type="text" name="address_line2" t-model="state.address_line2" t-att-class="'form-control ' + (errors.address_line2 ? 'required_input' : '')" placeholder="Address Line 2"/>
+                    <span t-if="errors.address_line2" class="error alert-danger">This field is required</span>
+                </div>
+            </div>
+            <!-- <div class="row">
+                <div class="col">
+                    <label for="inputEmail4" class="input-label required_field required_field mt-4">Address Line 3</label>
+                   <input type="text" name="address_line3" t-model="state.address_line3" t-att-class="'form-control ' + (errors.address_line3 ? 'required_input' : '')" placeholder="Address Line 3"/>
+                    <span t-if="errors.address_line3" class="error alert-danger">This field is required</span>
+                </div>
+            </div> -->
+            <div class="row">
+                <div class="col-md-6">
+                    <label for="inputEmail4" class="input-label required_field mt-4">Country</label>
+                    <!-- <input type="text" name="country" t-model="state.country"  t-att-class="'form-control ' + (errors.country ? 'required_input' : '')" placeholder="Country"/> -->
+                    <select id="countrycode" name="country" t-model="state.country" t-att-class="'form-control elect-option ' + (errors.country ? 'required_input' : '')">
+                        <option value="">Select a country</option>
+                       
+                        <option t-foreach="state.countries" t-as="country" t-key="country.code" t-att-value="country.code" 
+                        t-att-selected="country.code === state.country">
+                            <t t-esc="country.name"/>
+                        </option>
+                    </select>
+                    <span t-if="errors.country" class="error alert-danger">This field is required</span>
+                </div>
+                <div class="col-md-6">
+                    <label for="inputEmail4" class="input-label required_field mt-4">EirCode</label>
+                    <input type="text" name="eircode" t-model="state.eircode" t-att-class="'form-control ' + (errors.eircode ? 'required_input' : '')"  placeholder="EirCode"/>
+                    <span t-if="errors.eircode" class="error alert-danger">This field is required</span>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6">
+                    <label for="inputEmail4" class="input-label required_field mt-4">Residential Status</label>
+                    <input type="text" name="residential_status" t-model="state.residential_status"  t-att-class="'form-control ' + (errors.residential_status ? 'required_input' : '')" placeholder="Residential Status"/>
+                    <span t-if="errors.residential_status" class="error alert-danger">This field is required</span>
+                </div>
+                <div class="col-md-6">
+                    <label for="inputEmail4" class="input-label required_field mt-4">Years living at current address</label>
+                    <input type="text" name="years_living_current_address" t-model="state.years_living_current_address" t-att-class="'form-control ' + (errors.years_living_current_address ? 'required_input' : '')"  placeholder="Years living at current address"/>
+                    <span t-if="errors.years_living_current_address" class="error alert-danger">This field is required</span>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6">
+                    <label for="inputEmail4" class="input-label required_field mt-4">Years resident in Ireland</label>
+                    <input type="text" name="years_resident _in_ireland" t-model="state.years_resident"  t-att-class="'form-control ' + (errors.years_resident ? 'required_input' : '')" placeholder="Years resident in Ireland"/>
+                    <span t-if="errors.years_resident" class="error alert-danger">This field is required</span>
+                </div>
+                <div class="col-md-6"></div>
+               
+                <div class="col-md-12 mt-4">
+                    <t t-if="state.page=='live'">
+                        <div t-if="state.errorMessage" class="error sticky-sm-top alert alert-danger" role="alert">
+                                <p t-esc="state.errorMessage"></p>
+                        </div>
+                    </t>
+                </div>
+                
+               
+                <div class="col">
+                    <div class="form-check text-end">
+                        <button type="submit" class="btn btn-secondary w-25 mt-3 pt-3 pb-3 " t-on-click.prevent="setActiveTab.bind(this, 'tab1','aboutus')">
+                            Back
+                        </button>
+                        <button type="submit" class="btn btn-primary create_app_btn w-50 mt-3 btn-mortgage ms-3" t-on-click.prevent="submitaboutus.bind(this, 'live','tab3','tab2')">
+                            Continue
+                        </button>
+                        
+                    </div>
+                </div>
+
+
+            </div>
+        </form>
+
+        <!-- Conditionally render the modal -->
+        <t t-call="ti_loan_management.whereilivesummary"></t>
+    </t>
+</templates>

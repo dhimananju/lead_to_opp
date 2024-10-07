@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates xml:space="preserve">
+    <t t-name="ti_loan_management.mortgageexpenses">
+        <form class="aboutus"  >
+            <div class="row">
+                
+                <div class="col-md-12">
+                    <label for="exampleInputEmail1" class="form-label">Are you planning to live in this property or let it out?</label>
+                    <div role="group" aria-label="Basic radio toggle button group">
+                        <input type="hidden" name="csrf_token" t-att-value="csrfToken"/>
+                        <input type="radio" class="btn-check" name="livein" t-model="state.livein" id="livein1" autocomplete="off" checked="checked" value="livein"   />
+                        <label class="btn btn-outline-primary btn-mortgage" for="livein1">Live In</label>
+
+                        <input type="radio" class="btn-check " name="livein" t-model="state.livein" id="livein2" autocomplete="off"  value="letout"  />
+                        <label class="btn btn-outline-primary ms-5 btn-mortgage" for="livein2">Let Out</label>
+
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12 mt-4">
+                    <label for="inputEmail4" class="input-label ">Are you looking to do a self-build?</label>
+                    <div role="group" aria-label="Basic radio toggle button group">
+                        <input type="radio" class="btn-check" name="selfbuild" t-model="state.selfbuild" id="selfbuild1" autocomplete="off" checked="checked" value="yes" />
+                        <label class="btn btn-outline-primary  btn-mortgage" for="selfbuild1">Yes</label>
+
+                        <input type="radio" class="btn-check " name="selfbuild" t-model="state.selfbuild" id="selfbuild2" autocomplete="off"  value="no"/>
+                        <label class="btn btn-outline-primary ms-5  btn-mortgage" for="selfbuild2">No</label>
+
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12 mt-4">
+                    <label for="inputEmail4" class="input-label ">Do you plan on applying for this new mortgage by yourself or with somebody?</label>
+                    <div role="group" aria-label="Basic radio toggle button group">
+                        <input type="radio" class="btn-check" name="application_count"  id="application_count1" autocomplete="off" checked="checked" value="yourself" t-model="state.application_count" t-on-click="applicationcount"/>
+                        <label class="btn btn-outline-primary btn-mortgage" for="application_count1">By myself</label>
+
+                        <input type="radio" class="btn-check " name="application_count" id="application_count2" autocomplete="off"  value="somebody" t-model="state.application_count" t-on-click="applicationcount"/>
+                        <label class="btn btn-outline-primary ms-5  btn-mortgage" for="application_count2">With someone else</label>
+
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12 mt-4">
+                    <label for="inputEmail4" class="input-label ">Do you currently have a property in mind?</label>
+                    <div role="group" aria-label="Basic radio toggle button group">
+                        <input type="hidden" name="csrf_token" t-att-value="csrfToken"/>
+                        <input type="radio" class="btn-check" name="property_in_mind" id="property_in_mind1" autocomplete="off" checked="checked" value="yes" t-model="state.property_in_mind" t-on-click="updateproperty"/>
+                        <label class="btn btn-outline-primary w-25 btn-mortgage" for="property_in_mind1">Yes</label>
+
+                        <input type="radio" class="btn-check " name="property_in_mind" id="property_in_mind2" autocomplete="off"  value="no" t-model="state.property_in_mind" t-on-click="updateproperty"/>
+                        <label class="btn btn-outline-primary ms-5 w-25 btn-mortgage" for="property_in_mind2">No</label>
+
+                    </div>
+                </div>
+            </div>
+            
+            <div t-if="state.property_in_mind === 'yes'">
+                <div class="row">
+                    <div class="col-md-6 mt-4">
+                        <label for="inputEmail4" class="input-label  mt-4"> What is the value of the property? (Approximate/Best estimate) (in Euro)</label>
+                        <input type="number" name="estimate" t-model="state.estimate"  t-att-class="'form-control ' + (errors.estimate ? 'required_input' : '')" placeholder="Approximate/Best estimate"/>
+                        
+                    </div>
+                    <div class="col-md-6 mt-4">
+                        <label for="inputEmail4" class="input-label required_field mt-4"> How much funds do you currently have available?(in Euro)</label>
+                        <input type="number" name="current_fund" t-model="state.current_fund"  t-att-class="'form-control ' + (errors.current_fund ? 'required_input' : '')" placeholder="Acurrent Funds"/>
+                        
+                    </div>
+                </div>
+            </div>
+        
+
+            <div class="row">
+                <div class="col-md-6 mt-4">
+                    <label for="inputEmail4" class="input-label  mt-4"> How much on average is the total savings each month?(in Euro)</label>
+                    <input type="number" name="average_savings" t-model="state.average_savings"  t-att-class="'form-control ' + (errors.average_savings ? 'required_input' : '')" placeholder="Average Savings"/>
+                    <span t-if="errors.average_savings" class="error alert-danger">This field is required</span>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12 mt-4">
+                    <label for="inputEmail4" class="input-label ">Do you or any co-applicants have any dependents?</label>
+                    <div role="group" aria-label="Basic radio toggle button group">
+                        <input type="radio" class="btn-check" name="dependent" t-model="state.dependent" id="dependent1" autocomplete="off" checked="checked" value="yes" />
+                        <label class="btn btn-outline-primary w-25 btn-mortgage" for="dependent1">Yes</label>
+
+                        <input type="radio" class="btn-check " name="dependent" t-model="state.dependent" id="dependent2" autocomplete="off"  value="no"/>
+                        <label class="btn btn-outline-primary ms-5 w-25 btn-mortgage" for="dependent2">No</label>
+
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6 mt-4">
+                    <label for="inputEmail4" class="input-label  mt-4"> What is the annual gross basic income for Applicant 1?(in Euro)</label>
+                    <input type="number" name="anual_gross_income" t-model="state.anual_gross_income"  t-att-class="'form-control ' + (errors.anual_gross_income ? 'required_input' : '')" placeholder="Annual Gross Income"/>
+                  
+                </div>
+                 <div class="col-md-6 mt-4">
+                    <label for="inputEmail4" class="input-label  mt-4"> Is there any other variable income for Applicant 1?(in Euro)</label>
+                    <input type="number" name="variable_income" t-model="state.variable_income"  t-att-class="'form-control ' + (errors.variable_income ? 'required_input' : '')" placeholder="Variable Income"/>
+                   
+                </div>
+            </div>
+            <div t-if="state.application_count === 'somebody'">
+                <div class="row">
+                    <div class="col-md-6 mt-4">
+                        <label for="inputEmail4" class="input-label  mt-4"> What is the annual gross basic income for Applicant 2?(in Euro)</label>
+                        <input type="number" name="applicant2_gross_income" t-model="state.applicant2_gross_income"  t-att-class="'form-control ' + (errors.applicant2_gross_income ? 'required_input' : '')" placeholder="Applicant2 Gross Income"/>
+                       
+                    </div>
+                    <div class="col-md-6 mt-4">
+                        <label for="inputEmail4" class="input-label  mt-4">  Is there any other variable income for Applicant 2?(in Euro)</label>
+                        <input type="number" name="applicant2_variable_income" t-model="state.applicant2_variable_income"  t-att-class="'form-control ' + (errors.applicant2_variable_income ? 'required_input' : '')" placeholder="Applicant2 Variable Income"/>
+                        
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="row">
+                <div class="col-md-6 ">
+                    <div class="form-check mt-4">
+                        <input type="checkbox" id="terms_and_condition_expenses" class="form-check-input" checked= "checked" name="terms_and_condition_expenses"/>
+                        
+                        <label class="form-check-label required_field" for="gridCheck">
+                            I agree to receive direct marketing by email/phone/SMS/post.
+                        </label>
+                        
+                    </div>
+                </div>
+               
+                
+                <div class="col-sm-12 mt-4">
+                    <div t-if="state.errorMessage" class="error sticky-sm-top alert alert-danger" role="alert">
+                        <p t-esc="state.errorMessage"></p>
+                    </div>
+                </div>
+               
+                <div class="col">
+                    <div class="form-check text-end">
+                        <button type="submit" class="btn btn-secondary w-25 mt-3 pt-3 pb-3 " t-on-click.prevent="setActiveTab.bind(this, 'tab3')">
+                            Back
+                        </button>
+                        <button type="submit" class="btn btn-primary create_app_btn w-50 mt-3 btn-mortgage ms-3" t-on-click.prevent="submitaboutus.bind(this, 'finish','tab4','tab4')">
+                            Submit
+                        </button>
+                        
+                    </div>
+                </div>
+
+
+            </div>
+        </form>
+
+        <!-- Conditionally render the modal -->
+        <t t-call="ti_loan_management.mortgageexpensessummary"></t>
+    </t>
+</templates>

@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates xml:space="preserve">
+    <t t-name="ti_loan_management.aboutmeedit">
+        <form class="aboutus row g-3 text-start" >
+            <div class="row">
+                <div class="col-md-4">
+                    <label for="inputEmail4" class="input-label required_field">Title</label>
+                    <input type="hidden" name="csrf_token" t-att-value="csrfToken"/>
+                    <select id="inputState" class="form-control select-option " required="required" name="title" t-model="state.title">
+                         <option value="Mr.">Mr.</option>
+                        <option value="Ms.">Ms.</option>
+                    </select>
+                </div>
+                <div class="col-md-4">
+                    <label for="inputEmail4" class="input-label required_field">First Name</label>
+                    <input type="text" name="first_name" t-model="state.first_name" required="required" class="form-control"  placeholder="First name" />
+                    
+                </div>
+                <div class="col-md-4">
+                    <label for="inputEmail4" class="input-label required_field">Last Name</label>
+                    <input type="text" name="last_name" t-model="state.last_name" required="required"  class="form-control"  placeholder="Last name"/>
+                    
+                </div>
+                <p class="home_phone">Home Phone number</p>
+                <div class="col-md-6">
+                    <label for="inputEmail4" class="input-label required_field">Perfix</label>
+                    <input type="text" name="perfix" t-model="state.perfix"  class="form-control" required="required"  placeholder="Perfix"/>
+                    
+                </div>
+                <div class="col-md-6">
+                    <label for="inputEmail4" class="input-label required_field">Local Number</label>
+                    <input type="text" name="local_number" t-model="state.local_number" class="form-control" required="required"  placeholder="Local Number"/>
+                    
+                </div>
+                <p class="home_phone">Personal mobile number</p>
+               
+                <div class="col-md-6">
+                    <label for="inputEmail4" class="input-label required_field">Perfix</label>
+                    <input type="text" name="perfix_personal" t-model="state.perfix_personal" class="form-control"  required="required"  placeholder="Perfix"/>
+                    
+                </div>
+                <div class="col-md-6">
+                    <label for="inputEmail4" class="input-label required_field">Local Number</label>
+                    <input type="text" name="local_number_personal" t-model="state.local_number_personal" required="required"  class="form-control" placeholder="Local Number"/>
+                    
+                </div>
+                <div class="col-md-4 mt-4">
+                    <label for="inputEmail4" class="input-label required_field">Date</label>
+                    <input type="date" name="date_of_birth" t-model="state.date_of_birth" required="required" t-att-max="state.maxDate" class="form-control"   placeholder="Date of Birth"/>
+                
+                    
+                </div>
+                <div class="col-md-4 mt-4">
+                    <label for="inputEmail4" class="input-label required_field">PPSN</label>
+                    <input type="text" name="ppsn" t-model="state.ppsn" class="form-control" required="required"  placeholder="PPSN"/>
+                    
+                </div>
+                <div class="col-md-4 mt-4">
+                    <label for="inputEmail4" class="input-label required_field">Country of Nationality</label>
+                    <input type="text" name="nationality" t-model="state.nationality" class="form-control" required="required"  placeholder="Country of Nationality"/>
+                   
+                </div>
+                <p class="home_phone">Gender</p>
+                <div class="row">
+                    <div class="col-sm-10 custom-control-inline">
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio"  name="gender"  t-model="state.gender" id="gender1" value="male" checked="checked"/>
+                                <label class="form-check-label" for="gridRadios1">
+                                    Male
+                                </label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="gender" t-model="state.gender" id="gender2" value="female"/>
+                                <label class="form-check-label" for="gridRadios2">
+                                    Female
+                                </label>
+                            </div>
+                    </div>
+                </div>
+                
+               
+                <div class="col">
+                    <div class="form-check text-end">
+                        <button type="button" class="btn btn-primary create_app_btn mt-3 btn-mortgage" t-on-click="submitaboutme" >
+                            Update
+                        </button>
+                        
+                    </div>
+                </div>
+
+
+            </div>
+        </form>
+
+        <!-- Conditionally render the modal -->
+        <t t-call="ti_loan_management.aboutmesummary"></t>
+    </t>
+</templates>

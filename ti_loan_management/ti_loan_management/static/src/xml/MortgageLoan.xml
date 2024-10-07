@@ -1,0 +1,102 @@
+<templates xml:space="preserve">
+    <t t-name="ti_loan_management.MortgageLoan">
+        <div class="container ">
+                <div class="row">
+                    <div class="col-md home_top">
+                        <img src="ti_loan_management/static/img/lady.png" alt="Loan" class="loan_home_img"/>
+                    </div>
+                    <div class="col-md right-grid home_top">
+                        <!--<t t-call="ti_loan_management.load_page_second"></t>
+                        <t t-call="ti_loan_management.loan_third_step"></t>-->
+                            <h3 class="text-left loan_cal_h pb-2"> <i class="bi bi-calculator"></i>
+  Loan Calculator</h3>
+  <t t-esc="error_message"/>
+                                <form name="mortage_first_step" method="get" action="create_application">
+                                        <div class="mb-3">
+                                            <label for="exampleInputEmail1" class="form-label">is this your First mortgage</label>
+                                            <div role="group" aria-label="Basic radio toggle button group">
+                                                <input type="hidden" name="csrf_token" t-att-value="csrfToken"/>
+                                                <input type="radio" class="btn-check" name="mortage_select" id="mortage_select1" autocomplete="off" checked="checked" value="yes" />
+                                                <label class="btn btn-outline-primary w-25 btn-mortgage" for="mortage_select1">Yes</label>
+
+                                                <input type="radio" class="btn-check " name="mortage_select" id="mortage_select2" autocomplete="off"  value="no"/>
+                                                <label class="btn btn-outline-primary ms-5 w-25 btn-mortgage" for="mortage_select2">No</label>
+
+                                            </div>
+
+                                        </div>
+                                        <div class="mb-3">
+                                            <label for="exampleInputEmail1" class="form-label">Select the Mortgage intrest type</label>
+                                            <div role="group" aria-label="Basic radio toggle button group">
+                                                <input type="radio" class="btn-check" name="interest_type" id="interest_type1" autocomplete="off" checked="checked" value="fixed" />
+                                                <label class="btn btn-outline-primary w-25 btn-mortgage" for="interest_type1">Fixed</label>
+
+                                                <input type="radio" class="btn-check" name="interest_type" id="interest_type2" autocomplete="off" value="variable"/>
+                                                <label class="btn btn-outline-primary ms-5 w-25 btn-mortgage" for="interest_type2">Variable</label>
+
+                                            </div>
+                                        </div>
+
+                                        <div class="mb-3">
+                                            <label for="exampleInputEmail1" class="form-label">Do you want plan on applyting on this new mortgagae  by yourself or with somebody</label>
+                                            <div role="group" aria-label="Basic radio toggle button group">
+                                                <input type="radio" class="btn-check" name="applicant_no" id="applicant_no1" autocomplete="off" checked="checked" value="by myself"/>
+                                                <label class="btn btn-outline-primary w-25 btn-mortgage" for="applicant_no1">By Myself</label>
+
+                                                <input type="radio" class="btn-check" name="applicant_no" id="applicant_no2" autocomplete="off" value="With Someone else"/>
+                                                <label class="btn btn-outline-primary ms-5 w-50 btn-mortgage" for="applicant_no2">With Someone else</label>
+
+                                            </div>
+                                        </div>
+                                        <t t-if="state.userid">
+                                            <div class="mb-3">
+                                                <button type="submit" class="btn btn-primary create_app_btn w-50 mt-3 btn-mortgage" >
+                                                    Create application
+                                                </button>
+                                            </div>
+                                        </t>
+                                        <t t-else="">
+                                            <div class="mb-3">
+                                                <button type="button" class="btn btn-primary create_app_btn w-50 mt-3 btn-mortgage" t-on-click="openModal">
+                                                    Create application
+                                                </button>
+                                            </div>
+                                        </t>
+                                </form>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Conditionally render the modal -->
+            <t t-if="state.isModalOpen">
+                <div class="modal-overlay" >
+                    <div class="modal-content login_modal" >
+                        <button class="close-button text-secondary" t-on-click="closeModal">X</button>
+                         <div class="container mt32">
+                            <h1>Create Account</h1>
+                            <form action="/register" method="post" t-attf-action="/register">
+                                <div class="form-group">
+                                    <label for="name">Name</label>
+                                    <input type="hidden" name="csrf_token" t-att-value="csrfToken"/>
+                                    <input type="text" id="name" name="name" class="form-control" required="required"/>
+                                </div>
+                                <div class="form-group">
+                                    <label for="email">Email</label>
+                                    <input type="email" id="login" name="email" class="form-control" required="required"/>
+                                </div>
+                                <div class="form-group">
+                                    <label for="password">Password</label>
+                                    <input type="password" id="password" name="password" class="form-control" required="required"/>
+                                </div>
+                                <div class="form-group mt-4">
+                                    <button type="submit" class="btn btn-primary">Create Account</button> or <a href="/web/login" >Login</a>
+                                </div>
+                            </form>
+                        </div>
+                         
+                    </div>
+                </div>
+            </t>
+
+    </t>
+</templates>

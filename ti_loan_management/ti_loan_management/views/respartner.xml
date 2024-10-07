@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?> 
+<odoo> 
+
+   <record id="view_partner_form" model="ir.ui.view">
+            <field name="name">res.partner.form</field>
+            <field name="model">res.partner</field>
+            <field name="inherit_id" ref="base.view_partner_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//span[@name='address_name']" position="before">
+                    <field name="ppsn" required="1"/>
+                    <field name="nationality"></field>
+                    <field name="gender"></field>
+                    <field name="residential_status"></field>
+                    <field name="years_living_current_address"></field>
+                    <field name="years_residence_ireland"></field>
+                </xpath>
+            </field>
+        </record>
+    <!--form view end here-->
+
+    <!--add a new notebook for my job-->
+    <record id="view_partner_form_inherit_notebook" model="ir.ui.view">
+        <field name="name">res.partner.form.inherit.notebook</field>
+        <field name="model">res.partner</field>
+        <field name="inherit_id" ref="base.view_partner_form"/>
+        <field name="arch" type="xml">
+            <!-- Target the notebook element -->
+            <xpath expr="//notebook" position="inside">
+                <!-- Add a new page to the notebook -->
+                <page string="My Job">
+                    <group>
+                        <field name="emp_status"/>
+                        <field name="emp_sector"/>
+                    </group>
+                    <group>
+                        <field name="occupation"/>
+                        <field name="emp_industry"/>
+                    </group>
+                    <group>
+                        <field name="length_emp"/>
+                        <field name="emp_name"/>
+                    </group>
+                </page>
+            </xpath>
+        </field>
+    </record>
+</odoo>

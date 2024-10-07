@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates xml:space="preserve">
+    <t t-name="ti_loan_management.myjob">
+        <form class="aboutus"  >
+            <div class="row">
+                
+                <div class="col">
+                    <label for="inputEmail4" class="input-label required_field">Employment Status</label>
+                    <input type="text" name="employment_status" t-model="state.employment_status"  
+                    t-att-class="'form-control ' + (errors.employment_status ? 'required_input' : '')" placeholder="Employment Status" />
+                    <span t-if="errors.employment_status" class="error alert-danger">This field is required</span>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <label for="inputEmail4" class="input-label required_field mt-4">Employment Sector</label>
+                    <input type="text" name="employment_sector" t-model="state.employment_sector" 
+                    t-att-class="'form-control ' + (errors.employment_sector ? 'required_input' : '')" placeholder="Employment Sector"/>
+                    <span t-if="errors.employment_sector" class="error alert-danger">This field is required</span>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <label for="inputEmail4" class="input-label required_field required_field mt-4">Occupation</label>
+                   <input type="text" name="occupation" t-model="state.occupation" t-att-class="'form-control ' + (errors.occupation ? 'required_input' : '')" 
+                   placeholder="Occupation"/>
+                    <span t-if="errors.occupation" class="error alert-danger">This field is required</span>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <label for="inputEmail4" class="input-label required_field mt-4">Employment Industry</label>
+                    <input type="text" name="employment_industry" t-model="state.employment_industry"  
+                    t-att-class="'form-control ' + (errors.employment_industry ? 'required_input' : '')" placeholder="Employment Industry"/>
+                    <span t-if="errors.employment_industry" class="error alert-danger">This field is required</span>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <label for="inputEmail4" class="input-label required_field mt-4">Length of time employed in current job or self-employed</label>
+                    <input type="text" name="lenght_of_current_job" t-model="state.lenght_of_current_job" t-att-class="'form-control ' + (errors.lenght_of_current_job ? 'required_input' : '')"  
+                    placeholder="Length of time employed in current job or self-employed"/>
+                    <span t-if="errors.lenght_of_current_job" class="error alert-danger">This field is required</span>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <label for="inputEmail4" class="input-label required_field mt-4">Employer’s name</label>
+                    <input type="text" name="employer_name" t-model="state.employer_name"  t-att-class="'form-control ' + (errors.employer_name ? 'required_input' : '')" placeholder="Employer’s name"/>
+                    <span t-if="errors.employer_name" class="error alert-danger">This field is required</span>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <div class="form-check mt-4">
+                        <input  t-model="state.terms_and_condition" t-att-class="'form-check-input ' + (errors.terms_and_condition ? 'required_input' : '')" type="checkbox" id="terms_and_condition"  name="terms_and_condition"/>
+                        
+                        <label class="form-check-label required_field" for="gridCheck">
+                            I agree to receive direct marketing by email/phone/SMS/post.
+                        </label>
+                        <span t-if="errors.terms_and_condition" class="error alert-danger">This field is required</span>
+                    </div>
+                </div>
+               
+                
+                <div class="col-sm-12 mt-4">
+                    <div t-if="state.errorMessage" class="error sticky-sm-top alert alert-danger" role="alert">
+                        <p t-esc="state.errorMessage"></p>
+                    </div>
+                </div>
+               
+                <div class="col">
+                    <div class="form-check text-end">
+                        <button type="submit" class="btn btn-secondary w-25 mt-3 pt-3 pb-3 " t-on-click.prevent="setActiveTab.bind(this, 'tab2','live')">
+                            Back
+                        </button>
+                        <button type="submit" class="btn btn-primary create_app_btn w-50 mt-3 btn-mortgage ms-3" t-on-click.prevent="submitaboutus.bind(this, 'job','tab4','tab3')">
+                            Continue
+                        </button>
+                        
+                    </div>
+                </div>
+
+
+            </div>
+        </form>
+
+        <!-- Conditionally render the modal -->
+        <t t-call="ti_loan_management.jobsummary"></t>
+    </t>
+</templates>

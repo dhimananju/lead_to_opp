@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <!--Create menu for mortgage loan-->
+        <record id="mortgage_menu" model="website.menu">
+            <field name="name">Mortgage Loan</field>
+            <field name="url">/mortgage_loan</field>
+            <field name="parent_id" ref="website.main_menu"/>
+            <field name="sequence" type="int">1</field>
+        </record>
+
+        <!--Initial template to load Mortgage loan page-->
+        <template id="ti_loan_management.template_id1" name="Mortgage Loan">
+            <t t-call="website.layout">
+                <div id="wrap" class="home-img">
+                    <div class="oe_structure">
+                        <p class="bg-danger text-white text-center"><t t-esc="error_message"/></p>
+                        <xpath expr="." position="after">
+                            <owl-component name="ti_loan_management.mortgage_loan" />
+                        </xpath>
+                    </div>
+                </div>
+                
+            </t>
+        </template>
+
+
+        <!-- Template to load page after user login about more user information-->
+        <template id="ti_loan_management.create_application_page" name="Mortgage Loan | About me">
+            <t t-call="website.layout">
+                <div id="wrap" >
+                    <div class="oe_structure">
+                        <xpath expr="." position="after">
+                            <owl-component name="ti_loan_management.create_application" />
+                        </xpath>
+                        
+                    </div>
+                </div>
+            </t>
+        </template>
+
+        
+        <template id="ti_loan_management.thankyou" name="Mortgage Loan | ThankYou">
+            <t t-call="website.layout">
+                <div id="wrap" >
+                    <div class="oe_structure">
+                        <xpath expr="." position="after">
+                            <owl-component name="ti_loan_management.thankyou" />
+                        </xpath>
+                        
+                    </div>
+                </div>
+            </t>
+        </template>
+        
+    </data>
+</odoo>

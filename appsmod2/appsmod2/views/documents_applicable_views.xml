@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="documents_uniquely_applicable_preview_form" model="ir.ui.view">
+        <field name="name">docments.applicable.preview.form</field>
+        <field name="model">documents.uniquely.applicable</field>
+        <field name="arch" type="xml">
+            <form>
+                <field name="data_file" widget="pdf_viewer"/>
+            </form>
+        </field>
+    </record>
+
+    <record id="documents_applicable_applicant1_preview_form" model="ir.ui.view">
+        <field name="name">documents.applicable.applicant1.preview.form</field>
+        <field name="model">documents.applicable.applicant1</field>
+        <field name="arch" type="xml">
+            <form>
+                <field name="data_file" widget="pdf_viewer" filename="data_file_name"/>
+                <field name="data_file_name" invisible="1"/>
+            </form>
+        </field>
+    </record>
+
+    <record id="documents_applicable_applicant2_preview_form" model="ir.ui.view">
+        <field name="name">documents.applicable.applicant2.preview.form</field>
+        <field name="model">documents.applicable.applicant2</field>
+        <field name="arch" type="xml">
+            <form>
+                <field name="data_file" widget="pdf_viewer" filename="data_file_name"/>
+                <field name="data_file_name" invisible="1"/>
+            </form>
+        </field>
+    </record>
+
+</odoo>

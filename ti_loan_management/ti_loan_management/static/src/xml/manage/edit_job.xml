@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates xml:space="preserve">
+    <t t-name="ti_loan_management.jobedit">
+        <form class="aboutus text-start"  >
+            <div class="row">
+                
+                <div class="col">
+                    <label for="inputEmail4" class="input-label required_field">Employment Status</label>
+                    <input type="text" name="employment_status" t-model="state.employment_status"  
+                    class="form-control " placeholder="Employment Status" />
+                    
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <label for="inputEmail4" class="input-label required_field mt-4">Employment Sector</label>
+                    <input type="text" name="employment_sector" t-model="state.employment_sector" 
+                    class="form-control" placeholder="Employment Sector"/>
+                    
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <label for="inputEmail4" class="input-label required_field required_field mt-4">Occupation</label>
+                   <input type="text" name="occupation" t-model="state.occupation" class="form-control" 
+                   placeholder="Occupation"/>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <label for="inputEmail4" class="input-label required_field mt-4">Employment Industry</label>
+                    <input type="text" name="employment_industry" t-model="state.employment_industry"  
+                    class="form-control" placeholder="Employment Industry"/>
+                    
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <label for="inputEmail4" class="input-label required_field mt-4">Length of time employed in current job or self-employed</label>
+                    <input type="text" name="lenght_of_current_job" t-model="state.lenght_of_current_job" t-att-class="form-control"  
+                    placeholder="Length of time employed in current job or self-employed"/>
+                    
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <label for="inputEmail4" class="input-label required_field mt-4">Employer’s name</label>
+                    <input type="text" name="employer_name" t-model="state.employer_name"  t-att-class="form-control" placeholder="Employer’s name"/>
+                    
+                </div>
+            </div>
+            <div class="row">
+               
+                <div class="col">
+                    <div class="form-check text-end">
+                        <button type="button" class="btn btn-primary w-50 mt-3 pt-3 pb-3 " t-on-click="submitmyjob">
+                            Submit
+                        </button>
+                        
+                    </div>
+                </div>
+
+
+            </div>
+        </form>
+
+    </t>
+</templates>

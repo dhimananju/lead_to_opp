@@ -1,0 +1,24 @@
+<templates xml:space="preserve">
+    <t t-name="ti_loan_management.ThankYou" name="Mortgage Loan | Thankyou">
+        <div class="container ">
+                    <div class="row">
+                        <div class="col-md-12 mt-4">
+                            <form action="/upload_document" method="post">
+                                <input type="hidden" name="csrf_token" t-att-value="csrfToken"/>
+                                <input type="hidden" name="appid" t-model="state.appid"/>
+                                <div class="card  bg-white shadow p-5">
+                                    <div class="mb-4 text-center">
+                                        <i class="bi bi-hand-thumbs-up" style='font-size:48px;color:green'></i>
+                                    </div>
+                                    <div class="text-center">
+                                        <h1>Thank You !</h1>
+                                        <p>You application is successfully submitted, please upload document to proceed further.</p>
+                                        <button type="submit" class="btn btn-outline-success" >Continue with document upload</button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+            </div>
+    </t>
+</templates>
