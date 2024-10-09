@@ -141,13 +141,14 @@ class MortgageLoan(http.Controller):
                     return request.render('ti_loan_management.template_id1', custom_context)
                 
                 # Create the user/contact
+                group1_id = self.env.ref('appsmod2.group_appsmod2_external_user')
                 user = request.env['res.users'].sudo().create({
                     'name': name,
                     'login': email,
                     'email' :email,
                     'password': password,
                     'active': True,  # Activate the user by default
-                    'groups_id': [(59, 0, [request.env.ref('base.group_user').id]),(6, 0, [request.env.ref('base.group_user').id])]  # Regular user group to retsrict odoo backend access
+                    'groups_id': [(59, 0, group1_id),(6, 0, [request.env.ref('base.group_user').id])]  # Regular user group to retsrict odoo backend access
                 })
                 
                 # redirect to login
