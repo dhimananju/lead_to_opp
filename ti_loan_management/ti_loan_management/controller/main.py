@@ -141,7 +141,7 @@ class MortgageLoan(http.Controller):
                     return request.render('ti_loan_management.template_id1', custom_context)
                 
                 # Create the user/contact
-                group1_id = self.env.ref('appsmod2.group_appsmod2_external_user')
+                group1_id = request.env.ref('appsmod2.group_appsmod2_external_user')
                 user = request.env['res.users'].sudo().create({
                     'name': name,
                     'login': email,
