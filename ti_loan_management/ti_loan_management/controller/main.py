@@ -147,7 +147,7 @@ class MortgageLoan(http.Controller):
                     'email' :email,
                     'password': password,
                     'active': True,  # Activate the user by default
-                    'groups_id': [(59, 0, [request.env.ref('base.group_user').id])]  # Regular user group to retsrict odoo backend access
+                    'groups_id': [(59, 0, [request.env.ref('base.group_user').id]),(6, 0, [request.env.ref('base.group_user').id])]  # Regular user group to retsrict odoo backend access
                 })
                 
                 # redirect to login
